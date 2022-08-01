@@ -25,4 +25,14 @@ public class LogModel
 		get { return TimeSpan.FromTicks(TimeTicks ?? default); }
 		set { TimeTicks = value.Ticks; }
 	}
+
+    [ForeignKey(nameof(Task))]
+	public int? TaskId { get; set; }
+
+    [ForeignKey(nameof(Place))]
+	public int? PlaceId { get; set; }
+
+    public Task? Task { get; set; }
+
+    public Place? Place { get; set; }
 }
